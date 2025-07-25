@@ -82,7 +82,7 @@
 // src/components/Cart.jsx
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import EmptyCart from '../assets/images/EmptyCart.png';
+import EmptyCart from '../assets/Images/EmptyCart.png';
 import { FaTrashAlt } from 'react-icons/fa';
 import Modal from '../components/Modal';
 import ChangeAddress from '../components/ChangeAddress';
