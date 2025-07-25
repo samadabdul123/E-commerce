@@ -23,7 +23,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import ProductCard from '../components/ProductCard';
-import NoProduct from '../assets/Images/NoProduct.png'
+import NoProduct from '../assets/Images/Noproduct.png'
 
 const FilterData = () => {
   
