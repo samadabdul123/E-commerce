@@ -1,12 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import { FaCarSide, FaQuestion } from 'react-icons/fa'
-import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate, useParams } from 'react-router-dom'
+import { addToCart } from '../redux/cartSlice'
+
 
 const ProductDetail = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+     const handleAddToCart = (e, product) => {
+         e.stopPropagation()
+         e.preventDefault()
+         dispatch(addToCart(product))
+         alert("Product Added Successfully!")
+         navigate('/cart');
+      }
     const {id} = useParams()
     const products = useSelector(state => state.product.products)
     const [product, setProduct] = useState()
+    
     useEffect(() => {
         const newProduct = products.find(product => product.id === parseInt(id))
         setProduct(newProduct)
@@ -29,7 +41,7 @@ const ProductDetail = () => {
                       id='quantity'
                       
                       className='border p-1 w-16' />
-                      <button className='bg-red-600 text-white py-1.5 px-4 hover:bg-red-800'>Add to Cart</button>
+                      <button className='bg-red-600 text-white py-1.5 px-4 hover:bg-red-800' onClick={(e) => handleAddToCart(e, product)}>Add to Cart</button>
                     </div>
                     <div className='flex flex-col gap-y-4 mt-4'>
                         <p className='flex items-center'>

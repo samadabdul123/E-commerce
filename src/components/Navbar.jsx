@@ -54,6 +54,8 @@ const Navbar = () => {
                     </span>
                    )}
                 </Link>
+               
+
                 <button className='hidden md:block'
                 onClick={() => setIsModelOpen(true)}
                 >
@@ -71,12 +73,14 @@ const Navbar = () => {
             <Link to="/shop" className='hover:underline'>
             Shop
             </Link>
-            <Link to="/" className='hover:underline'>
+            <Link to="/contact" className='hover:underline'>
             Contact
             </Link>
-            <Link to="/" className='hover:underline'>
+            <Link to="/about" className='hover:underline'>
             About
             </Link>
+            
+
         </div>
         <Modal isModelOpen={isModelOpen} setIsModelOpen={setIsModelOpen}>
         {isLogin ? <Login openSignUp={openSignUp}/> : <Register openLogin={openLogin}/>}
